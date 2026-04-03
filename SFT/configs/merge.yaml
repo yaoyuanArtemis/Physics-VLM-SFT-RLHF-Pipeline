@@ -1,0 +1,27 @@
+### model
+# 基础模型路径（修改为你的实际路径）
+model_name_or_path: models/Qwen2.5-VL-7B-Instruct
+
+# SFT LoRA 权重路径（训练输出目录）
+adapter_name_or_path: output/qwen_physics_v1
+
+# 模板类型
+template: qwen2_5_vl
+
+### export
+# 合并后的完整模型保存路径
+export_dir: models/qwen2_5_vl_physics_merged
+
+# 模型分片大小（GB），用于分割大模型文件
+# 建议值：2-5GB，避免单个文件过大
+export_size: 2
+
+# 合并设备选择
+# cpu: 使用 CPU 合并，节省显存（推荐）
+# cuda: 使用 GPU 合并，速度更快但占用显存
+export_device: cpu
+
+# 导出格式
+# false: 使用新格式 safetensors（推荐，更安全）
+# true: 使用旧格式 .bin
+export_legacy_format: false

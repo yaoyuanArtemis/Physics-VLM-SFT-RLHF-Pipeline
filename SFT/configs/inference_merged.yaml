@@ -1,0 +1,18 @@
+### model
+# 合并后的完整模型路径（修改为你的实际路径）
+model_name_or_path: models/qwen2_5_vl_physics_merged
+
+# 模板类型
+template: qwen2_5_vl
+
+### method
+stage: sft                # SFT 阶段标识
+finetuning_type: full     # 使用完整模型（非 LoRA）
+
+### inference (可选配置)
+# 生成参数
+# do_sample: true
+# temperature: 0.7
+# top_p: 0.9
+# max_new_tokens: 512
+# repetition_penalty: 1.1

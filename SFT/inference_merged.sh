@@ -1,0 +1,57 @@
+#!/bin/bash
+################################################################################
+# Qwen2.5-VL SFT 模型推理脚本（使用合并后的完整模型）
+################################################################################
+
+set -e
+
+echo "================================================================================"
+echo "🎯 启动 SFT 模型推理（完整模型模式）"
+echo "================================================================================"
+
+# 推理配置文件
+CONFIG_FILE="SFT/configs/inference_merged.yaml"
+
+# 检查配置文件是否存在
+if [ ! -f "$CONFIG_FILE" ]; then
+    echo "❌ 错误: 找不到配置文件 $CONFIG_FILE"
+    echo "请确保在项目根目录运行此脚本"
+    exit 1
+fi
+
+# 检查合并后的模型是否存在
+MERGED_MODEL="models/qwen2_5_vl_physics_merged"
+if [ ! -d "$MERGED_MODEL" ]; then
+    echo "❌ 错误: 找不到合并后的模型 $MERGED_MODEL"
+    echo ""
+    echo "请先运行合并脚本:"
+    echo "  bash SFT/merge_sft.sh"
+    exit 1
+fi
+
+# 检查 LLaMA-Factory 是否安装
+if ! command -v llamafactory-cli &> /dev/null; then
+    echo "❌ 错误: 未找到 llamafactory-cli"
+    exit 1
+fi
+
+# 显示配置信息
+echo "📋 推理配置:"
+echo "   - 完整模型: $MERGED_MODEL"
+echo "   - 推理模式: 完整模型（生产部署用）"
+echo ""
+
+# 启动 WebUI
+echo "🌐 启动 Web 推理界面..."
+echo "================================================================================"
+echo ""
+echo "📌 使用说明:"
+echo "   1. 等待模型加载完成"
+echo "   2. 在浏览器中打开显示的 URL"
+echo "   3. 上传物理材料图片"
+echo "   4. 输入问题进行测试"
+echo ""
+echo "💡 提示: 按 Ctrl+C 停止服务"
+echo "================================================================================"
+
+llamafactory-cli webchat "$CONFIG_FILE"
