@@ -116,7 +116,7 @@ PYTORCH_ALLOC_CONF=expandable_segments:True llamafactory-cli train train_qwen_ph
 以下是模型在实际复杂学术/工业场景下的识别表现：
 
 ### 🔬 测试案例一：三维空间重构与内部结构解析
-> **User Prompt:** 请结合图 c、d、e 的绿色 3D 模型，以及图 g、h、i 的二维高分辨电镜照片，分析这种纳米颗粒的内部物理结构是什么样的？它是实心的还是空心的？请说明得出此结论的视觉依据。
+> **User Prompt:** <image>/root/autodl-tmp/VLM-Physics-Finetuning-Data/assets/mat_img_686.jpg</image> Analyze the morphological evolution of the particles shown here. Pay special attention to the 3D reconstructions (c, d, e) and explain the significance of the crystallographic planes (110) and (200) indicated in the SAED insets.
 ![内部结构解析](./assets/mat_img_686.jpg)
 
 > **Finetuned Model Output:** > **纳米颗粒内部物理结构分析：**
