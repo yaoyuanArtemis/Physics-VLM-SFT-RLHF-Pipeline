@@ -98,7 +98,7 @@ PYTORCH_ALLOC_CONF=expandable_segments:True llamafactory-cli train train_qwen_ph
   - 启动命令：在带有显卡的终端中运行 llamafactory-cli webchat train_qwen_physics.yaml，即可通过 WebUI 直接给它发送物理图片进行专属能力的检验。
 ---
 七、 模型权重与数据开源 (Hugging Face)
-本项目遵循 MLOps 工业级规范，采用“代码与模型资产分离”的存储策略。基础大模型（Qwen2.5-VL-7B）使用官方开源版本，而本次实验生成的专属 LoRA 权重与物理数据集已永久托管于 Hugging Face：
+本项目遵循  工业级规范，采用“代码与模型资产分离”的存储策略。基础大模型（Qwen2.5-VL-7B）使用官方开源版本，而本次实验生成的专属 LoRA 权重与物理数据集已永久托管于 Hugging Face：
 
 🧠 SFT 模型权重 (LoRA Adapter): https://huggingface.co/yaoyuanlf/qwen2.5-vl-physics-lora
 
@@ -170,7 +170,7 @@ PYTORCH_ALLOC_CONF=expandable_segments:True llamafactory-cli train train_qwen_ph
 在本次对比测试中，观察到了经典的**灾难性遗忘 (Catastrophic Forgetting)** 现象：
 1. **领域过拟合**：由于在 SFT 阶段输入了大量单一维度的材料形貌/瑕疵图片，导致模型原有的“学术图表读取”和“坐标轴解析”能力受到了视觉神经元的权重偏移干扰。
 2. **数据幻觉**：微调模型在读取图 f 的柱状图时出现了严重幻觉，得出了“尺寸越大、速度越快”这种违背物理常识的错误结论；而 Base 模型不仅精准读出了图表数据，还自主调用了斯托克斯定律进行原理解释。
-3. **工程优化建议**：在未来的 MLOps 迭代中，应当采用**混合数据训练策略 (Data Mixing)**，在垂直领域图库中混入一定比例（如 10%-20%）的通用学术图表数据，以保证模型在具备垂直鉴别能力的同时，保留基础的图表数据分析理智。
+3. **工程优化建议**：在未来的迭代中，应当采用**混合数据训练策略 (Data Mixing)**，在垂直领域图库中混入一定比例（如 10%-20%）的通用学术图表数据，以保证模型在具备垂直鉴别能力的同时，保留基础的图表数据分析理智。
 
 九、 强化学习阶段 (RLHF)：利用 GRPO 重塑物理逻辑
 在 SFT 阶段的消融实验中，观察到模型虽然具备了极强的垂直领域特征提取能力，但在涉及复杂图表读取与物理定律推导时，出现了严重的幻觉。为了解决这一痛点，引入了强化学习机制，让模型从“看图说话”进化为“严谨推理”。
@@ -205,7 +205,7 @@ PYTORCH_ALLOC_CONF=expandable_segments:True llamafactory-cli train train_qwen_ph
 
 生成的 final_inference_results.jsonl 详细记录了“图片路径-标准答案-模型预测”。将该文件下载至本地，通过 Python 脚本进行关键字匹配统计，得出的 Accuracy 和错误分布矩阵（Confusion Matrix）成为了论文 Experimental Results 章节中最核心的定量论据。
 
-十一、 工业级开源与项目交付 (MLOps 终局)
+十一、 工业级开源与项目交付 ( 终局)
 毕业论文不仅是文本的交付，更是完整工程资产的交付。在彻底释放云端 GPU 实例前，完成了一系列标准的开源合规化动作。
 
 1. 跨越内网屏障的 Hugging Face 极速上传
