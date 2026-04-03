@@ -225,11 +225,12 @@ S3 校验机制规避：在上传 16.6GB 模型文件的尾声阶段，进度条
 3. 项目脱水与 GitHub 结构化封存
 在离开 AutoDL 服务器的最后十分钟，为了确保 GitHub 仓库的绝对纯净（模块化、SFT与RL分离），我们使用自定义的 tar 过滤指令进行了终极打包：
 
-Bash
+```Bash
 tar --exclude='*VLM-Physics-Finetuning-Data/material_dataset/*.jpg' \
     --exclude='*.safetensors' --exclude='*.bin' --exclude='*.pth' \
     --exclude='pip_packages' --exclude='__pycache__' \
     -czvf /root/all_project_code.tar.gz .
+```
 该指令完美剥离了几十 GB 的原图数据集与庞大的模型权重，仅将配置文件、打分脚本、环境依赖表及各个阶段的推理 .jsonl 提炼为不到数十兆的压缩包。
 
 
