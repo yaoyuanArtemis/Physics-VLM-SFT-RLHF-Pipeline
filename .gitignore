@@ -215,3 +215,6 @@ VLM-Physics-Finetuning-Data/
 
 # RL outputs
 rl_run/
+
+# Claude Code
+.claude/
