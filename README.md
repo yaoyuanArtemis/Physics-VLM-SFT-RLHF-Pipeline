@@ -85,10 +85,10 @@ optim: paged_adamw_8bit
 ### eval
 val_size: 0.05
 ```
-最终点火命令：
-Bash
-PYTORCH_ALLOC_CONF=expandable_segments:True llamafactory-cli train train_qwen_physics.yaml
 
+```Bash
+PYTORCH_ALLOC_CONF=expandable_segments:True llamafactory-cli train train_qwen_physics.yaml
+```
 ---
 六、 实验结果与推理部署
 1. 训练耗时与结果： 启动后，系统完美读取了预处理缓存（0 秒过 Tokenizer）。经过约 12 个小时的不间断计算，4455 个 Steps 全部跑完。最终 train_loss 降至极其优秀的 0.1762，模型权重成功保存在了目标目录下。
