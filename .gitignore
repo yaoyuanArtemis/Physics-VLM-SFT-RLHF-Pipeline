@@ -206,6 +206,7 @@ predictions_score.json
 # Third-party frameworks (should be installed separately)
 LLaMA-Factory/
 RLHF/
+.claude/
 
 # Downloaded models (too large, should be downloaded separately)
 models/
