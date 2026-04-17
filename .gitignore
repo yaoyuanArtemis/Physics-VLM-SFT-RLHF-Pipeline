@@ -25,6 +25,16 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+*.aux
+*.bbl
+*.bcf
+*.lof
+*.lot
+*.blg
+*.toc
+*.out
+*.cls
+Overleaf/
 
 # PyInstaller
 *.manifest

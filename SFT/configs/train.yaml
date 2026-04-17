@@ -6,8 +6,8 @@ stage: sft
 do_train: true
 finetuning_type: lora # 使用 LoRA 轻量化微调
 lora_target: q_proj,v_proj      # 训练所有层，效果最好
-lora_rank: 4         # <--- 新增：降低矩阵维度，省显存！
-lora_alpha: 4
+lora_rank: 8         # <--- 新增：降低矩阵维度，省显存！
+lora_alpha: 8
 
 ### dataset
 dataset: material_physics # 刚才在 dataset_info.json 里起的 ID
